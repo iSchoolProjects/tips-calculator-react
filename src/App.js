@@ -1,9 +1,10 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import './App.css';
 import Tips from './components/Tips';
 import Display from './components/Display';
 import People from './components/People';
 import Bill from './components/Bill';
+import axios from 'axios';
 
 function App() {
   const [state, setState] = useState({bill: 0, tip: 0, people: 0});
@@ -13,6 +14,10 @@ function App() {
   const handleClick = () => {
     setState({bill: 0, tip: 0, people: 0});
   };
+
+  useEffect(() => {
+    axios.get('git@github.com:iSchoolProjects/tips-calculator-react.git').then((r) => console.log(r));
+  }, []);
 
   return (
     <main>
